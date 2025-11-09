@@ -1,54 +1,100 @@
-[gd_scene load_steps=4 format=3 uid="uid://c608gttcobq7w"]
+[gd_scene load_steps=14 format=3 uid="uid://c608gttcobq7w"]
 
 [ext_resource type="Script" uid="uid://sfbws4aq3gi" path="res://creatures_screen.gd" id="1_cwgwc"]
 [ext_resource type="Theme" uid="uid://bw27kyo8oueeq" path="res://button_theme.tres" id="2_2jek0"]
-[ext_resource type="Texture2D" uid="uid://c83ai38cowgpg" path="res://Creature Images/BULB BULB.png" id="3_cu7qy"]
+[ext_resource type="Texture2D" uid="uid://bqva228j426tf" path="res://Button Images/Crown 2.png" id="3_l17ai"]
+[ext_resource type="Texture2D" uid="uid://bgf11slo0vge1" path="res://Button Images/Alternate_BG.jpg" id="4_2jek0"]
+[ext_resource type="Texture2D" uid="uid://ppn4qnnfce1n" path="res://Button Images/Pressed-Crown 2.png" id="4_j4d3u"]
+[ext_resource type="Texture2D" uid="uid://chr3gf6a08nv2" path="res://Button Images/Tasks 2.png" id="5_qbk3q"]
+[ext_resource type="Texture2D" uid="uid://76nekutt7uwi" path="res://Button Images/Pressed-Tasks 2.png" id="6_1quc8"]
+[ext_resource type="Texture2D" uid="uid://xawc2v41co4q" path="res://Button Images/Home.png" id="7_qbk3q"]
+[ext_resource type="Texture2D" uid="uid://b4lgo850tsyx6" path="res://Button Images/Pressed_Home 2.png" id="8_1quc8"]
+[ext_resource type="Texture2D" uid="uid://ctulusf5ooj22" path="res://Button Images/Battles 2.png" id="9_iyogg"]
+[ext_resource type="Texture2D" uid="uid://c24qwt8so1e34" path="res://Button Images/Pressed-Battles 2.png" id="10_erxyx"]
+[ext_resource type="Texture2D" uid="uid://bhj8dpy8v4vq1" path="res://Button Images/Creatures 2.png" id="11_erxyx"]
+[ext_resource type="Texture2D" uid="uid://buqgo2m0q1k81" path="res://Creature Images/Slime.png" id="13_sk1ly"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_cwgwc")
 
-[node name="Goals Button" type="Button" parent="."]
+[node name="Goals Button" type="TextureButton" parent="."]
 offset_top = 1136.0
 offset_right = 144.0
 offset_bottom = 1280.0
 theme = ExtResource("2_2jek0")
-text = "Goals"
+texture_normal = ExtResource("3_l17ai")
+texture_pressed = ExtResource("4_j4d3u")
 
-[node name="Tasks Button" type="Button" parent="."]
+[node name="Tasks Button" type="TextureButton" parent="."]
 offset_left = 144.0
 offset_top = 1136.0
 offset_right = 288.0
 offset_bottom = 1280.0
 theme = ExtResource("2_2jek0")
-text = "Tasks"
+texture_normal = ExtResource("5_qbk3q")
+texture_pressed = ExtResource("6_1quc8")
 
-[node name="Home Button" type="Button" parent="."]
+[node name="Home Button" type="TextureButton" parent="."]
 offset_left = 288.0
 offset_top = 1136.0
 offset_right = 432.0
 offset_bottom = 1280.0
 theme = ExtResource("2_2jek0")
-text = "Home"
+texture_normal = ExtResource("7_qbk3q")
+texture_pressed = ExtResource("8_1quc8")
 
-[node name="Battle Button" type="Button" parent="."]
+[node name="Battle Button" type="TextureButton" parent="."]
 offset_left = 432.0
 offset_top = 1136.0
 offset_right = 576.0
 offset_bottom = 1280.0
 theme = ExtResource("2_2jek0")
-text = "Battle"
+texture_normal = ExtResource("9_iyogg")
+texture_pressed = ExtResource("10_erxyx")
 
-[node name="Creatures Button" type="Button" parent="."]
+[node name="Creatures Button" type="TextureButton" parent="."]
 offset_left = 576.0
 offset_top = 1136.0
 offset_right = 720.0
 offset_bottom = 1280.0
 theme = ExtResource("2_2jek0")
-text = "Creatures"
+texture_normal = ExtResource("11_erxyx")
+texture_pressed = ExtResource("6_1quc8")
 
-[node name="BulbBulb" type="Sprite2D" parent="."]
-position = Vector2(324, 660)
-texture = ExtResource("3_cu7qy")
+[node name="AlternateBg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(360, 675.5)
+scale = Vector2(1.0027778, 1.0523437)
+texture = ExtResource("4_2jek0")
+
+[node name="Panel" type="Panel" parent="AlternateBg"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.4017
+offset_top = -1031.032
+offset_right = -143.60112
+offset_bottom = -438.06982
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_2jek0")
+
+[node name="Slime" type="Sprite2D" parent="AlternateBg"]
+position = Vector2(-2.9916964, -65.09278)
+scale = Vector2(0.12944731, 0.12944731)
+texture = ExtResource("13_sk1ly")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 224.0
+offset_top = 294.0
+offset_right = 501.0
+offset_bottom = 417.0
+theme = ExtResource("2_2jek0")
+theme_override_font_sizes/font_size = 100
+text = "Slime"
 
 [connection signal="pressed" from="Goals Button" to="." method="_on_goals_button_pressed"]
 [connection signal="pressed" from="Tasks Button" to="." method="_on_tasks_button_pressed"]
