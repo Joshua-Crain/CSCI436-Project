@@ -5,8 +5,10 @@ extends Node2D
 @onready var line_edit: LineEdit = $Panel/VBoxContainer/HBoxContainer/LineEdit
 @onready var item_list: ItemList = $Panel/VBoxContainer/ItemList
 
-
 func _ready() -> void:
+	# get existing task data
+	
+	
 	# Start with Add visible and Delete hidden
 	add_button.visible = true
 	delete_button.visible = false
@@ -56,3 +58,5 @@ func _on_delete_button_pressed() -> void:
 func _on_item_selected(_index: int) -> void:
 	add_button.visible = false
 	delete_button.visible = true
+	
+	

@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds6qo2tyi4voi"]
+
+[ext_resource type="Script" uid="uid://xjc2f8rrxn6c" path="res://task_menu.gd" id="1_htffj"]
+[ext_resource type="Script" uid="uid://bktootjcjpi26" path="res://task_system.gd" id="1_v5227"]
+
+[node name="TaskSystem" type="Node2D"]
+script = ExtResource("1_v5227")
+
+[node name="TaskMenu" type="Node2D" parent="."]
+script = ExtResource("1_htffj")
+
+[node name="ItemList" type="ItemList" parent="TaskMenu"]
+offset_top = 4.0
+offset_right = 720.0
+offset_bottom = 956.0
+theme_override_font_sizes/font_size = 32
+
+[node name="TextEdit" type="TextEdit" parent="TaskMenu"]
+offset_top = 956.0
+offset_right = 720.0
+offset_bottom = 1120.0005
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(0.66656864, 0.6665687, 0.66656864, 1)
+theme_override_colors/background_color = Color(0.23734602, 0.1637266, 0.07622989, 1)
+theme_override_font_sizes/font_size = 36
+placeholder_text = "Enter task name..."
+
+[node name="SaveButton" type="Button" parent="TaskMenu"]
+offset_left = 454.0
+offset_top = 1118.0
+offset_right = 700.0
+offset_bottom = 1262.0
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Save"
+
+[node name="DeleteButton" type="Button" parent="TaskMenu"]
+offset_left = 24.0
+offset_top = 1120.0
+offset_right = 270.0
+offset_bottom = 1264.0
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Delete"
+
+[node name="Screen2" type="Node2D" parent="."]
+visible = false
+
+[node name="Screen3" type="Node2D" parent="."]
+visible = false
+
+[node name="Screen4" type="Node2D" parent="."]
+visible = false
+
+[connection signal="item_selected" from="TaskMenu/ItemList" to="TaskMenu" method="_on_item_list_item_selected"]
