@@ -6,6 +6,8 @@ extends Node2D
 @onready var screen4 = $Screen4
 @onready var calendar: Calendar
 
+static var taskData = TaskData.new()
+
 func _init() -> void:
 	pass
 
@@ -21,3 +23,4 @@ func  _ready() -> void:
 func _on_create_button_pressed() -> void:
 	TaskMenu.hide()
 	screen2.show()
+	taskData.taskName = TaskMenu.getTaskName()

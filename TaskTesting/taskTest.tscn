@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds6qo2tyi4voi"]
+[gd_scene load_steps=8 format=3 uid="uid://ds6qo2tyi4voi"]
 
 [ext_resource type="Script" uid="uid://xjc2f8rrxn6c" path="res://scripts/task_menu.gd" id="1_htffj"]
 [ext_resource type="Script" uid="uid://bktootjcjpi26" path="res://scripts/task_system.gd" id="1_v5227"]
+[ext_resource type="Script" uid="uid://uttm1kbw6pv2" path="res://screen_2.gd" id="3_05a0u"]
+[ext_resource type="StyleBox" uid="uid://ch3jftw4iy7n8" path="res://styles/multiButton.tres" id="3_hn1tg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5227"]
 bg_color = Color(0.2936626, 0.19219917, 0.0629732, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05a0u"]
+bg_color = Color(0.50369585, 0.4453752, 0.08836796, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc6m3"]
+bg_color = Color(0.33175668, 0.22002152, 0.021550303, 1)
 
 [node name="TaskSystem" type="Node2D"]
 script = ExtResource("1_v5227")
@@ -46,6 +54,7 @@ disabled = true
 text = "Delete"
 
 [node name="Screen2" type="Node2D" parent="."]
+script = ExtResource("3_05a0u")
 
 [node name="NextButton" type="Button" parent="Screen2"]
 offset_left = 454.0
@@ -65,19 +74,97 @@ theme_override_font_sizes/font_size = 46
 disabled = true
 text = "Back"
 
-[node name="OptionButton" type="OptionButton" parent="Screen2"]
-offset_left = 161.0
-offset_top = 64.0
-offset_right = 546.6
-offset_bottom = 305.0
-selected = 0
-item_count = 3
-popup/item_0/text = "a"
-popup/item_0/id = 0
-popup/item_1/text = "b"
-popup/item_1/id = 1
-popup/item_2/text = "c"
-popup/item_2/id = 2
+[node name="DateButton" type="Button" parent="Screen2"]
+offset_left = 24.0
+offset_top = 132.0
+offset_right = 174.0
+offset_bottom = 276.0
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = ExtResource("3_hn1tg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05a0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xc6m3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xc6m3")
+toggle_mode = true
+text = "Date"
+
+[node name="WeeklyButton" type="Button" parent="Screen2"]
+offset_left = 270.0
+offset_top = 132.0
+offset_right = 438.0
+offset_bottom = 276.0
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = ExtResource("3_hn1tg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05a0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xc6m3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xc6m3")
+toggle_mode = true
+text = "Weekly"
+
+[node name="NoneButton" type="Button" parent="Screen2"]
+offset_left = 545.0
+offset_top = 132.0
+offset_right = 695.0
+offset_bottom = 276.0
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = ExtResource("3_hn1tg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05a0u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xc6m3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xc6m3")
+toggle_mode = true
+text = "None"
+
+[node name="Label" type="Label" parent="Screen2"]
+offset_left = 74.0
+offset_top = 12.0
+offset_right = 651.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 36
+text = "Date type:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Screen2"]
+offset_left = 74.0
+offset_top = 299.0
+offset_right = 651.0
+offset_bottom = 380.0
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="year" type="LineEdit" parent="Screen2"]
+visible = false
+offset_left = 24.0
+offset_top = 380.0
+offset_right = 209.0
+offset_bottom = 473.0
+theme_override_font_sizes/font_size = 36
+placeholder_text = "yyyy"
+alignment = 1
+max_length = 4
+virtual_keyboard_type = 2
+
+[node name="month" type="LineEdit" parent="Screen2/year"]
+layout_mode = 0
+offset_left = 236.0
+offset_right = 421.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 36
+placeholder_text = "mm"
+alignment = 1
+max_length = 2
+virtual_keyboard_type = 2
+
+[node name="day" type="LineEdit" parent="Screen2/year/month"]
+layout_mode = 0
+offset_left = 252.0
+offset_right = 437.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 36
+placeholder_text = "dd"
+alignment = 1
+max_length = 2
+virtual_keyboard_type = 2
 
 [node name="Screen3" type="Node2D" parent="."]
 visible = false
@@ -124,3 +211,9 @@ text = "Back"
 [connection signal="item_selected" from="TaskMenu/ItemList" to="TaskMenu" method="_on_item_list_item_selected"]
 [connection signal="text_changed" from="TaskMenu/LineEdit" to="TaskMenu" method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="TaskMenu/CreateButton" to="." method="_on_create_button_pressed"]
+[connection signal="toggled" from="Screen2/DateButton" to="Screen2" method="_on_date_button_toggled"]
+[connection signal="toggled" from="Screen2/WeeklyButton" to="Screen2" method="_on_weekly_button_toggled"]
+[connection signal="toggled" from="Screen2/NoneButton" to="Screen2" method="_on_none_button_toggled"]
+[connection signal="text_changed" from="Screen2/year" to="Screen2" method="_on_year_text_changed"]
+[connection signal="text_changed" from="Screen2/year/month" to="Screen2" method="_on_month_text_changed"]
+[connection signal="text_changed" from="Screen2/year/month/day" to="Screen2" method="_on_day_text_changed"]

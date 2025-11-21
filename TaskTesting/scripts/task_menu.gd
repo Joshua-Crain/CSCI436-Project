@@ -6,7 +6,7 @@ extends Node2D
 
 func _ready() -> void:
 	deleteButton.disabled = true
-	saveButton.disabled = true
+	createButton.disabled = true
 	
 	var taskFile = FileAccess.open("res://data/savedTasks.txt", FileAccess.READ)
 	if(taskFile == null): # attempt to open task file
@@ -34,3 +34,9 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 		createButton.disabled = true
 	else:
 		createButton.disabled = false
+
+
+# get_name
+# returns string of the entered task name.
+func getTaskName() -> String:
+	return(textEntry.text.strip_edges())
