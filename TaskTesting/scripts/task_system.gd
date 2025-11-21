@@ -14,3 +14,10 @@ func  _ready() -> void:
 	screen2.hide()
 	screen3.hide()
 	screen4.hide()
+
+# TaskMenu create button
+# transition to next screen
+
+func _on_create_button_pressed() -> void:
+	TaskMenu.hide()
+	screen2.show()

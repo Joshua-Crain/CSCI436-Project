@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds6qo2tyi4voi"]
+[gd_scene load_steps=4 format=3 uid="uid://ds6qo2tyi4voi"]
 
-[ext_resource type="Script" uid="uid://xjc2f8rrxn6c" path="res://task_menu.gd" id="1_htffj"]
-[ext_resource type="Script" uid="uid://bktootjcjpi26" path="res://task_system.gd" id="1_v5227"]
+[ext_resource type="Script" uid="uid://xjc2f8rrxn6c" path="res://scripts/task_menu.gd" id="1_htffj"]
+[ext_resource type="Script" uid="uid://bktootjcjpi26" path="res://scripts/task_system.gd" id="1_v5227"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5227"]
+bg_color = Color(0.2936626, 0.19219917, 0.0629732, 1)
 
 [node name="TaskSystem" type="Node2D"]
 script = ExtResource("1_v5227")
 
 [node name="TaskMenu" type="Node2D" parent="."]
+visible = false
 script = ExtResource("1_htffj")
 
 [node name="ItemList" type="ItemList" parent="TaskMenu"]
@@ -15,24 +19,22 @@ offset_right = 720.0
 offset_bottom = 956.0
 theme_override_font_sizes/font_size = 32
 
-[node name="TextEdit" type="TextEdit" parent="TaskMenu"]
+[node name="LineEdit" type="LineEdit" parent="TaskMenu"]
 offset_top = 956.0
 offset_right = 720.0
-offset_bottom = 1120.0005
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_placeholder_color = Color(0.66656864, 0.6665687, 0.66656864, 1)
-theme_override_colors/background_color = Color(0.23734602, 0.1637266, 0.07622989, 1)
+offset_bottom = 1103.0
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_v5227")
 placeholder_text = "Enter task name..."
 
-[node name="SaveButton" type="Button" parent="TaskMenu"]
+[node name="CreateButton" type="Button" parent="TaskMenu"]
 offset_left = 454.0
 offset_top = 1118.0
 offset_right = 700.0
 offset_bottom = 1262.0
 theme_override_font_sizes/font_size = 46
 disabled = true
-text = "Save"
+text = "Create"
 
 [node name="DeleteButton" type="Button" parent="TaskMenu"]
 offset_left = 24.0
@@ -44,12 +46,81 @@ disabled = true
 text = "Delete"
 
 [node name="Screen2" type="Node2D" parent="."]
-visible = false
+
+[node name="NextButton" type="Button" parent="Screen2"]
+offset_left = 454.0
+offset_top = 1118.0
+offset_right = 700.0
+offset_bottom = 1262.0
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Next"
+
+[node name="BackButton" type="Button" parent="Screen2"]
+offset_left = 24.0
+offset_top = 1118.0
+offset_right = 270.0
+offset_bottom = 1262.0
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Back"
+
+[node name="OptionButton" type="OptionButton" parent="Screen2"]
+offset_left = 161.0
+offset_top = 64.0
+offset_right = 546.6
+offset_bottom = 305.0
+selected = 0
+item_count = 3
+popup/item_0/text = "a"
+popup/item_0/id = 0
+popup/item_1/text = "b"
+popup/item_1/id = 1
+popup/item_2/text = "c"
+popup/item_2/id = 2
 
 [node name="Screen3" type="Node2D" parent="."]
 visible = false
 
+[node name="NextButton" type="Button" parent="Screen3"]
+offset_left = 454.0
+offset_top = 1118.0
+offset_right = 700.0
+offset_bottom = 1262.0
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Next"
+
+[node name="BackButton" type="Button" parent="Screen3"]
+offset_left = 24.0
+offset_top = 1118.0
+offset_right = 270.0
+offset_bottom = 1262.0
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Back"
+
 [node name="Screen4" type="Node2D" parent="."]
 visible = false
 
+[node name="NextButton" type="Button" parent="Screen4"]
+offset_left = 454.0
+offset_top = 1118.0
+offset_right = 700.0
+offset_bottom = 1262.0
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Next"
+
+[node name="BackButton" type="Button" parent="Screen4"]
+offset_left = 24.0
+offset_top = 1118.0
+offset_right = 270.0
+offset_bottom = 1262.0
+theme_override_font_sizes/font_size = 46
+disabled = true
+text = "Back"
+
 [connection signal="item_selected" from="TaskMenu/ItemList" to="TaskMenu" method="_on_item_list_item_selected"]
+[connection signal="text_changed" from="TaskMenu/LineEdit" to="TaskMenu" method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="TaskMenu/CreateButton" to="." method="_on_create_button_pressed"]

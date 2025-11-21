@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxyn8anfhk5gn"]
 
-[ext_resource type="Script" uid="uid://dgqstl6d2bchi" path="res://battle_screen.gd" id="1_3047d"]
+[ext_resource type="Script" uid="uid://dgqstl6d2bchi" path="res://scripts/battle_screen.gd" id="1_3047d"]
 [ext_resource type="Texture2D" uid="uid://cstoqt5qyefpx" path="res://SQUIR.png" id="2_duuuk"]
 
 [node name="Node2D" type="Node2D"]

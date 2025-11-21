@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c608gttcobq7w"]
 
-[ext_resource type="Script" uid="uid://sfbws4aq3gi" path="res://creatures_screen.gd" id="1_gi5tu"]
+[ext_resource type="Script" uid="uid://sfbws4aq3gi" path="res://scripts/creatures_screen.gd" id="1_gi5tu"]
 [ext_resource type="Texture2D" uid="uid://c83ai38cowgpg" path="res://BULB BULB.png" id="2_32ttk"]
 
 [node name="Node2D" type="Node2D"]

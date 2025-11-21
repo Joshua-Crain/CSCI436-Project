@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3oqqcgm83dkh"]
 
-[ext_resource type="Script" uid="uid://cb21okjpa5t7x" path="res://goals_screen.gd" id="1_e0j8f"]
+[ext_resource type="Script" uid="uid://cb21okjpa5t7x" path="res://scripts/goals_screen.gd" id="1_e0j8f"]
 [ext_resource type="Texture2D" uid="uid://u2qwkyw4dkes" path="res://CHAR CHAR.png" id="2_8b1pw"]
 
 [node name="Node2D" type="Node2D"]
