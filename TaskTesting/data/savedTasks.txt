@@ -4,7 +4,7 @@ dateType
 dateValue
 time
 recur
-type
+0
 reason
 gain
 note
@@ -14,7 +14,7 @@ dateType
 dateValue
 time
 recur
-type
+1
 reason
 gain
 note
@@ -24,7 +24,17 @@ dateType
 dateValue
 time
 recur
-type
+2
+reason
+gain
+note
+FILESEPERATOR
+name3
+dateType
+dateValue
+time
+recur
+3
 reason
 gain
 note
