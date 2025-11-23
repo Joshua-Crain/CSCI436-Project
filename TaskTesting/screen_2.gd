@@ -147,3 +147,31 @@ func _on_productivity_button_toggled(toggled_on: bool) -> void:
 		WellnessButton.disabled = false
 		FunButton.disabled = false
 		SocialButton.disabled = false
+
+# Clear all fields and go back to task menu
+func _on_cancel_button_pressed() -> void:
+	WellnessButton.button_pressed = false
+	FunButton.button_pressed = false
+	SocialButton.button_pressed = false
+	ProductivityButton.button_pressed = false
+	
+	WellnessButton.disabled = false
+	FunButton.disabled = false
+	SocialButton.disabled = false
+	ProductivityButton.disabled = false
+
+	year.text = ""
+	month.text = ""
+	day.text = ""
+
+	Sun.button_pressed = false
+	Mon.button_pressed = false
+	Tues.button_pressed = false
+	Wed.button_pressed = false
+	Thur.button_pressed = false
+	Fri.button_pressed = false
+	Sat.button_pressed = false
+
+	DateButton.button_pressed = false
+	WeeklyButton.button_pressed = false
+	NoneButton.button_pressed = false

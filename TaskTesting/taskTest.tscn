@@ -90,14 +90,13 @@ disabled = true
 text = "Next"
 metadata/_edit_use_anchors_ = true
 
-[node name="BackButton" type="Button" parent="Screen2"]
+[node name="CancelButton" type="Button" parent="Screen2"]
 offset_left = 24.0
 offset_top = 1118.0
 offset_right = 270.0
 offset_bottom = 1262.0
 theme_override_font_sizes/font_size = 46
-disabled = true
-text = "Back"
+text = "Cancel"
 metadata/_edit_use_anchors_ = true
 
 [node name="DateButton" type="Button" parent="Screen2"]
@@ -427,6 +426,8 @@ text = "Back"
 [connection signal="item_selected" from="TaskMenu/ItemList" to="TaskMenu" method="_on_item_list_item_selected"]
 [connection signal="text_changed" from="TaskMenu/LineEdit" to="TaskMenu" method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="TaskMenu/CreateButton" to="." method="_on_create_button_pressed"]
+[connection signal="pressed" from="Screen2/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="Screen2/CancelButton" to="Screen2" method="_on_cancel_button_pressed"]
 [connection signal="toggled" from="Screen2/DateButton" to="Screen2" method="_on_date_button_toggled"]
 [connection signal="toggled" from="Screen2/WeeklyButton" to="Screen2" method="_on_weekly_button_toggled"]
 [connection signal="toggled" from="Screen2/NoneButton" to="Screen2" method="_on_none_button_toggled"]
