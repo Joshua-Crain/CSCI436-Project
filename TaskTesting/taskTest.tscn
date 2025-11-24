@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://ds6qo2tyi4voi"]
+[gd_scene load_steps=17 format=3 uid="uid://ds6qo2tyi4voi"]
 
 [ext_resource type="Script" uid="uid://xjc2f8rrxn6c" path="res://scripts/task_menu.gd" id="1_htffj"]
 [ext_resource type="Script" uid="uid://bktootjcjpi26" path="res://scripts/task_system.gd" id="1_v5227"]
 [ext_resource type="Script" uid="uid://uttm1kbw6pv2" path="res://screen_2.gd" id="3_05a0u"]
 [ext_resource type="StyleBox" uid="uid://ch3jftw4iy7n8" path="res://styles/multiButton.tres" id="3_hn1tg"]
+[ext_resource type="Script" uid="uid://xn8307qlxksw" path="res://screen_3.gd" id="5_xc6m3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5227"]
 bg_color = Color(0.2936626, 0.19219917, 0.0629732, 1)
@@ -42,7 +43,6 @@ bg_color = Color(0.5385206, 0.5796506, 0, 1)
 script = ExtResource("1_v5227")
 
 [node name="TaskMenu" type="Node2D" parent="."]
-visible = false
 script = ExtResource("1_htffj")
 
 [node name="ItemList" type="ItemList" parent="TaskMenu"]
@@ -78,6 +78,7 @@ disabled = true
 text = "Delete"
 
 [node name="Screen2" type="Node2D" parent="."]
+visible = false
 script = ExtResource("3_05a0u")
 
 [node name="NextButton" type="Button" parent="Screen2"]
@@ -100,11 +101,11 @@ text = "Cancel"
 metadata/_edit_use_anchors_ = true
 
 [node name="DateButton" type="Button" parent="Screen2"]
-offset_left = 24.0
-offset_top = 132.0
-offset_right = 174.0
-offset_bottom = 276.0
-theme_override_font_sizes/font_size = 46
+offset_left = 32.0
+offset_top = 128.0
+offset_right = 182.0
+offset_bottom = 198.0
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("3_hn1tg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_05a0u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_xc6m3")
@@ -114,11 +115,11 @@ text = "Date"
 metadata/_edit_use_anchors_ = true
 
 [node name="WeeklyButton" type="Button" parent="Screen2"]
-offset_left = 270.0
-offset_top = 132.0
-offset_right = 438.0
-offset_bottom = 276.0
-theme_override_font_sizes/font_size = 46
+offset_left = 285.0
+offset_top = 128.0
+offset_right = 435.0
+offset_bottom = 198.0
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("3_hn1tg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_05a0u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_xc6m3")
@@ -128,11 +129,11 @@ text = "Weekly"
 metadata/_edit_use_anchors_ = true
 
 [node name="NoneButton" type="Button" parent="Screen2"]
-offset_left = 545.0
-offset_top = 132.0
-offset_right = 695.0
-offset_bottom = 276.0
-theme_override_font_sizes/font_size = 46
+offset_left = 536.0
+offset_top = 128.0
+offset_right = 686.0
+offset_bottom = 198.0
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("3_hn1tg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_05a0u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_xc6m3")
@@ -151,6 +152,24 @@ text = "Date type:"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Screen2"]
+offset_left = 40.0
+offset_top = 227.0
+offset_right = 179.0
+offset_bottom = 266.0
+theme_override_font_sizes/font_size = 28
+text = "Recurring:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RecurringBox" type="CheckBox" parent="Screen2"]
+offset_left = 182.0
+offset_top = 215.0
+offset_right = 206.0
+offset_bottom = 239.0
+scale = Vector2(3, 3)
 
 [node name="Label2" type="Label" parent="Screen2"]
 offset_left = 74.0
@@ -288,6 +307,7 @@ scale = Vector2(1.75, 1.75)
 min_value = 1.0
 max_value = 12.0
 value = 1.0
+rounded = true
 
 [node name="Minutes" type="SpinBox" parent="Screen2/TimeSelection"]
 offset_left = 308.00003
@@ -298,6 +318,7 @@ scale = Vector2(1.75, 1.75)
 min_value = 1.0
 max_value = 59.0
 value = 1.0
+rounded = true
 
 [node name="AMPM" type="CheckButton" parent="Screen2/TimeSelection"]
 offset_left = 496.00006
@@ -383,15 +404,15 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Screen3" type="Node2D" parent="."]
 visible = false
+script = ExtResource("5_xc6m3")
 
-[node name="NextButton" type="Button" parent="Screen3"]
+[node name="FinishButton" type="Button" parent="Screen3"]
 offset_left = 454.0
 offset_top = 1118.0
 offset_right = 700.0
 offset_bottom = 1262.0
 theme_override_font_sizes/font_size = 46
-disabled = true
-text = "Next"
+text = "Finish"
 
 [node name="BackButton" type="Button" parent="Screen3"]
 offset_left = 24.0
@@ -399,42 +420,96 @@ offset_top = 1118.0
 offset_right = 270.0
 offset_bottom = 1262.0
 theme_override_font_sizes/font_size = 46
-disabled = true
 text = "Back"
 
-[node name="Screen4" type="Node2D" parent="."]
-visible = false
+[node name="ReasonEdit" type="LineEdit" parent="Screen3"]
+offset_left = 62.0
+offset_top = 93.0
+offset_right = 660.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 24
+placeholder_text = "(optional)"
+max_length = 255
+metadata/_edit_use_anchors_ = true
 
-[node name="NextButton" type="Button" parent="Screen4"]
-offset_left = 454.0
-offset_top = 1118.0
-offset_right = 700.0
-offset_bottom = 1262.0
-theme_override_font_sizes/font_size = 46
-disabled = true
-text = "Next"
+[node name="GainEdit" type="LineEdit" parent="Screen3"]
+offset_left = 62.0
+offset_top = 237.0
+offset_right = 660.0
+offset_bottom = 279.0
+theme_override_font_sizes/font_size = 24
+placeholder_text = "(optional)"
+max_length = 255
+metadata/_edit_use_anchors_ = true
 
-[node name="BackButton" type="Button" parent="Screen4"]
-offset_left = 24.0
-offset_top = 1118.0
-offset_right = 270.0
-offset_bottom = 1262.0
-theme_override_font_sizes/font_size = 46
-disabled = true
-text = "Back"
+[node name="NoteEdit" type="LineEdit" parent="Screen3"]
+offset_left = 62.0
+offset_top = 380.0
+offset_right = 660.0
+offset_bottom = 422.0
+theme_override_font_sizes/font_size = 24
+placeholder_text = "(optional)"
+max_length = 255
+metadata/_edit_use_anchors_ = true
 
-[connection signal="item_selected" from="TaskMenu/ItemList" to="TaskMenu" method="_on_item_list_item_selected"]
+[node name="Label" type="Label" parent="Screen3"]
+offset_left = 74.0
+offset_top = 12.0
+offset_right = 651.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 36
+text = "Why are you making this task?:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Screen3"]
+offset_left = 62.0
+offset_top = 156.0
+offset_right = 639.0
+offset_bottom = 237.0
+theme_override_font_sizes/font_size = 36
+text = "What will you gain from it?:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Screen3"]
+offset_left = 74.0
+offset_top = 299.0
+offset_right = 651.0
+offset_bottom = 380.0
+theme_override_font_sizes/font_size = 36
+text = "Additional note:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [connection signal="text_changed" from="TaskMenu/LineEdit" to="TaskMenu" method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="TaskMenu/CreateButton" to="." method="_on_create_button_pressed"]
+[connection signal="pressed" from="Screen2/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="Screen2/CancelButton" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="Screen2/CancelButton" to="Screen2" method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="Screen2/CancelButton" to="Screen3" method="_on_cancel_button_pressed"]
 [connection signal="toggled" from="Screen2/DateButton" to="Screen2" method="_on_date_button_toggled"]
 [connection signal="toggled" from="Screen2/WeeklyButton" to="Screen2" method="_on_weekly_button_toggled"]
 [connection signal="toggled" from="Screen2/NoneButton" to="Screen2" method="_on_none_button_toggled"]
 [connection signal="text_changed" from="Screen2/DateSelection/year" to="Screen2" method="_on_year_text_changed"]
 [connection signal="text_changed" from="Screen2/DateSelection/month" to="Screen2" method="_on_month_text_changed"]
 [connection signal="text_changed" from="Screen2/DateSelection/day" to="Screen2" method="_on_day_text_changed"]
+[connection signal="toggled" from="Screen2/WeekSelection/CheckBox1" to="Screen2" method="_on_check_box_toggled"]
+[connection signal="toggled" from="Screen2/WeekSelection/CheckBox2" to="Screen2" method="_on_check_box_toggled"]
+[connection signal="toggled" from="Screen2/WeekSelection/CheckBox3" to="Screen2" method="_on_check_box_toggled"]
+[connection signal="toggled" from="Screen2/WeekSelection/CheckBox4" to="Screen2" method="_on_check_box_toggled"]
+[connection signal="toggled" from="Screen2/WeekSelection/CheckBox5" to="Screen2" method="_on_check_box_toggled"]
+[connection signal="toggled" from="Screen2/WeekSelection/CheckBox6" to="Screen2" method="_on_check_box_toggled"]
+[connection signal="toggled" from="Screen2/WeekSelection/CheckBox7" to="Screen2" method="_on_check_box_toggled"]
 [connection signal="toggled" from="Screen2/TypeSelection/WellnessButton" to="Screen2" method="_on_wellness_button_toggled"]
 [connection signal="toggled" from="Screen2/TypeSelection/FunButton" to="Screen2" method="_on_fun_button_toggled"]
 [connection signal="toggled" from="Screen2/TypeSelection/SocialButton" to="Screen2" method="_on_social_button_toggled"]
 [connection signal="toggled" from="Screen2/TypeSelection/ProductivityButton" to="Screen2" method="_on_productivity_button_toggled"]
+[connection signal="pressed" from="Screen3/FinishButton" to="." method="_on_finish_button_pressed"]
+[connection signal="pressed" from="Screen3/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="text_changed" from="Screen3/ReasonEdit" to="Screen3" method="_on_reason_edit_changed"]
+[connection signal="text_changed" from="Screen3/GainEdit" to="Screen3" method="_on_gain_edit_text_changed"]
+[connection signal="text_changed" from="Screen3/NoteEdit" to="Screen3" method="_on_note_edit_text_changed"]

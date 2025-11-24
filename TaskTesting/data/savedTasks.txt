@@ -1,4 +1,4 @@
-FILESEPERATOR
+@FILESEPERATOR
 name
 dateType
 dateValue
@@ -8,7 +8,7 @@ recur
 reason
 gain
 note
-FILESEPERATOR
+@FILESEPERATOR
 name2
 dateType
 dateValue
@@ -18,7 +18,7 @@ recur
 reason
 gain
 note
-FILESEPERATOR
+@FILESEPERATOR
 name3
 dateType
 dateValue
@@ -28,7 +28,7 @@ recur
 reason
 gain
 note
-FILESEPERATOR
+@FILESEPERATOR
 name3
 dateType
 dateValue

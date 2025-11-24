@@ -7,16 +7,21 @@ extends Node2D
 func _ready() -> void:
 	deleteButton.disabled = true
 	createButton.disabled = true
-	
+	readData()
+
+# readData:
+# reads task data from file to list in the menu. Assigns color based on task type.
+func readData() -> void:
 	var taskFile = FileAccess.open("res://data/savedTasks.txt", FileAccess.READ)
 	if(taskFile == null): # attempt to open task file
 		printerr(FileAccess.get_open_error())
 
+	taskList.clear()
 	# Read data
 	var buffer
 	while(taskFile.get_position() < taskFile.get_length()): # load task names
 		buffer = taskFile.get_line()
-		if(buffer == "FILESEPERATOR"): # start of task data sequence
+		if(buffer == "@FILESEPERATOR"): # start of task data sequence
 			# get task name
 			var task_name = taskFile.get_line()
 			
@@ -39,15 +44,20 @@ func _ready() -> void:
 		
 	taskFile.close()
 
-
-func _on_item_list_item_selected(index: int) -> void:
-	pass # Replace with function body.
-
 # textEntry text edited:
 # ensure textEntry has a given task name to unblock saving.
+# remove all '@' chars, as they are reserved for the saved tasks file formatting.
 func _on_line_edit_text_changed(new_text: String) -> void:
-	new_text = new_text.strip_edges()
-	if(new_text.is_empty()):
+	var caret = textEntry.caret_column # keep old caret position
+	var regex = RegEx.new()
+	var text
+	regex.compile("[^@]*")
+	text = regex.search(new_text)
+	text = text.get_string()
+	textEntry.text = text
+	textEntry.caret_column = caret
+	text = text.strip_edges()
+	if(text.is_empty()):
 		createButton.disabled = true
 	else:
 		createButton.disabled = false
