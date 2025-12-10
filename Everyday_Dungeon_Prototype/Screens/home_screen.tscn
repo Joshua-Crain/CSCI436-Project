@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c1mv58djkb4nw"]
+[gd_scene load_steps=22 format=3 uid="uid://c1mv58djkb4nw"]
 
 [ext_resource type="Theme" uid="uid://bw27kyo8oueeq" path="res://button_theme.tres" id="2_gna5p"]
 [ext_resource type="Texture2D" uid="uid://bq16apvlec3ja" path="res://Button Images/MainBG.jpg" id="3_6t2h2"]
@@ -15,7 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://id3i4y6223i1" path="res://Button Images/Cog 2.png" id="13_omn7p"]
 [ext_resource type="Texture2D" uid="uid://drgw8wo78t5uo" path="res://Button Images/Pressed_Cog 2.png" id="14_gugag"]
 [ext_resource type="Script" uid="uid://dt4sch6omafg6" path="res://scripts/creature_movement.gd" id="15_gugag"]
-[ext_resource type="Texture2D" uid="uid://bibie0ynd7gl7" path="res://Creature Images/sheep.png" id="16_15iws"]
+[ext_resource type="Texture2D" uid="uid://b24f03nbjumbb" path="res://Creature Images/Sheep2.png" id="16_hs3y6"]
+[ext_resource type="Texture2D" uid="uid://drwhsxcrug2ks" path="res://Creature Images/HYDRAte.png" id="17_q57uf"]
+[ext_resource type="Texture2D" uid="uid://c745o1j6f66ev" path="res://Creature Images/Goblin.png" id="18_xruii"]
+[ext_resource type="Texture2D" uid="uid://d2dau16edh8dk" path="res://Creature Images/Slime 2.0.png" id="19_5h82a"]
 
 [sub_resource type="GDScript" id="GDScript_omn7p"]
 script/source = "extends Node2D
@@ -169,7 +172,7 @@ script = ExtResource("15_gugag")
 
 [node name="Sprite" type="Sprite2D" parent="Visible Creatures/Creature1"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("16_15iws")
+texture = ExtResource("16_hs3y6")
 
 [node name="Creature2" type="Node2D" parent="Visible Creatures"]
 position = Vector2(445, 623)
@@ -177,7 +180,7 @@ script = ExtResource("15_gugag")
 
 [node name="Sprite" type="Sprite2D" parent="Visible Creatures/Creature2"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("16_15iws")
+texture = ExtResource("17_q57uf")
 
 [node name="Creature3" type="Node2D" parent="Visible Creatures"]
 position = Vector2(603, 928)
@@ -185,7 +188,7 @@ script = ExtResource("15_gugag")
 
 [node name="Sprite" type="Sprite2D" parent="Visible Creatures/Creature3"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("16_15iws")
+texture = ExtResource("18_xruii")
 
 [node name="Creature4" type="Node2D" parent="Visible Creatures"]
 position = Vector2(191, 841)
@@ -193,7 +196,7 @@ script = ExtResource("15_gugag")
 
 [node name="Sprite" type="Sprite2D" parent="Visible Creatures/Creature4"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("16_15iws")
+texture = ExtResource("19_5h82a")
 
 [connection signal="pressed" from="Goals Button" to="." method="_on_goals_button_pressed"]
 [connection signal="pressed" from="Tasks Button" to="." method="_on_tasks_button_pressed"]
