@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://c608gttcobq7w"]
+[gd_scene load_steps=17 format=3 uid="uid://c608gttcobq7w"]
 
-[ext_resource type="Script" uid="uid://sfbws4aq3gi" path="res://creatures_screen.gd" id="1_cwgwc"]
+[ext_resource type="Script" uid="uid://sfbws4aq3gi" path="res://scripts/creatures_screen.gd" id="1_cwgwc"]
 [ext_resource type="Theme" uid="uid://bw27kyo8oueeq" path="res://button_theme.tres" id="2_2jek0"]
 [ext_resource type="Texture2D" uid="uid://bqva228j426tf" path="res://Button Images/Crown 2.png" id="3_l17ai"]
 [ext_resource type="Texture2D" uid="uid://bgf11slo0vge1" path="res://Button Images/Alternate_BG.jpg" id="4_2jek0"]
@@ -12,7 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://ctulusf5ooj22" path="res://Button Images/Battles 2.png" id="9_iyogg"]
 [ext_resource type="Texture2D" uid="uid://c24qwt8so1e34" path="res://Button Images/Pressed-Battles 2.png" id="10_erxyx"]
 [ext_resource type="Texture2D" uid="uid://bhj8dpy8v4vq1" path="res://Button Images/Creatures 2.png" id="11_erxyx"]
-[ext_resource type="Texture2D" uid="uid://buqgo2m0q1k81" path="res://Creature Images/Slime.png" id="13_sk1ly"]
+[ext_resource type="Texture2D" uid="uid://b24f03nbjumbb" path="res://Creature Images/Sheep2.png" id="13_6fhqb"]
+[ext_resource type="Texture2D" uid="uid://c745o1j6f66ev" path="res://Creature Images/Goblin.png" id="14_1scel"]
+[ext_resource type="Texture2D" uid="uid://drwhsxcrug2ks" path="res://Creature Images/HYDRAte.png" id="15_8y0ll"]
+[ext_resource type="Texture2D" uid="uid://d2dau16edh8dk" path="res://Creature Images/Slime 2.0.png" id="16_brrek"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_cwgwc")
@@ -67,34 +70,44 @@ position = Vector2(360, 675.5)
 scale = Vector2(1.0027778, 1.0523437)
 texture = ExtResource("4_2jek0")
 
-[node name="Panel" type="Panel" parent="AlternateBg"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -575.4017
-offset_top = -1031.032
-offset_right = -143.60112
-offset_bottom = -438.06982
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme = ExtResource("2_2jek0")
+[node name="Creature Buttons" type="Node2D" parent="."]
+position = Vector2(40, 40)
 
-[node name="Slime" type="Sprite2D" parent="AlternateBg"]
-position = Vector2(-2.9916964, -65.09278)
-scale = Vector2(0.12944731, 0.12944731)
-texture = ExtResource("13_sk1ly")
-
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 224.0
-offset_top = 294.0
-offset_right = 501.0
-offset_bottom = 417.0
+[node name="Sheep" type="Button" parent="Creature Buttons"]
+offset_right = 300.0
+offset_bottom = 500.0
 theme = ExtResource("2_2jek0")
-theme_override_font_sizes/font_size = 100
-text = "Slime"
+icon = ExtResource("13_6fhqb")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Goblin" type="Button" parent="Creature Buttons"]
+offset_left = 340.0
+offset_right = 640.0
+offset_bottom = 500.0
+theme = ExtResource("2_2jek0")
+icon = ExtResource("14_1scel")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Hydra" type="Button" parent="Creature Buttons"]
+offset_top = 560.0
+offset_right = 300.0
+offset_bottom = 1060.0
+theme = ExtResource("2_2jek0")
+icon = ExtResource("15_8y0ll")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Slime" type="Button" parent="Creature Buttons"]
+offset_left = 340.0
+offset_top = 560.0
+offset_right = 640.0
+offset_bottom = 1060.0
+theme = ExtResource("2_2jek0")
+icon = ExtResource("16_brrek")
+icon_alignment = 1
+expand_icon = true
 
 [connection signal="pressed" from="Goals Button" to="." method="_on_goals_button_pressed"]
 [connection signal="pressed" from="Tasks Button" to="." method="_on_tasks_button_pressed"]
