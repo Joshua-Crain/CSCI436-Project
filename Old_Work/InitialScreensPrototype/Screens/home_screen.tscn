@@ -1,5 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://c1mv58djkb4nw"]
 
+[ext_resource type="Script" uid="uid://heoa2qv10646" path="res://home_screen.gd" id="1_6t2h2"]
 [ext_resource type="Theme" uid="uid://bw27kyo8oueeq" path="res://button_theme.tres" id="2_gna5p"]
 [ext_resource type="Texture2D" uid="uid://bq16apvlec3ja" path="res://Button Images/MainBG.jpg" id="3_6t2h2"]
 [ext_resource type="Texture2D" uid="uid://xawc2v41co4q" path="res://Button Images/Home.png" id="3_75kvq"]
@@ -14,51 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://hs1clid5mgcy" path="res://Button Images/Pressed-Creatures 2.png" id="12_q57uf"]
 [ext_resource type="Texture2D" uid="uid://id3i4y6223i1" path="res://Button Images/Cog 2.png" id="13_omn7p"]
 [ext_resource type="Texture2D" uid="uid://drgw8wo78t5uo" path="res://Button Images/Pressed_Cog 2.png" id="14_gugag"]
-[ext_resource type="PackedScene" uid="uid://cm8p5ek75cj0y" path="res://Objects/creature.tscn" id="15_omn7p"]
-
-[sub_resource type="GDScript" id="GDScript_omn7p"]
-script/source = "extends Node2D
-
-@onready var options_panel: Panel = $\"Options Panel\"
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	options_panel.visible = false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-# Menu button navigations
-func _on_goals_button_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://Screens/goals_screen.tscn\")
-
-func _on_tasks_button_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://Screens/tasks_screen.tscn\")
-
-func _on_home_button_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://Screens/home_screen.tscn\")
-
-func _on_battle_button_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://Screens/battle_screen.tscn\")
-
-func _on_creatures_button_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://Screens/creatures_screen.tscn\")
-
-
-# Settings
-func _on_settings_button_pressed() -> void:
-	options_panel.visible = true
-
-func _on_exit_options_button_pressed() -> void:
-	options_panel.visible = false
-"
+[ext_resource type="Texture2D" uid="uid://buqgo2m0q1k81" path="res://Creature Images/Slime.png" id="15_gugag"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_outur"]
 bg_color = Color(0.61339027, 0.61339027, 0.6133901, 1)
 
 [node name="Node2D" type="Node2D"]
-script = SubResource("GDScript_omn7p")
+script = ExtResource("1_6t2h2")
 
 [node name="Goals Button" type="TextureButton" parent="."]
 offset_top = 1136.0
@@ -114,7 +77,6 @@ texture_normal = ExtResource("13_omn7p")
 texture_pressed = ExtResource("14_gugag")
 
 [node name="Options Panel" type="Panel" parent="."]
-visible = false
 z_index = 1
 offset_left = 85.0
 offset_top = 300.0
@@ -159,20 +121,20 @@ position = Vector2(361, 673.49994)
 scale = Vector2(1, 1.0507811)
 texture = ExtResource("3_6t2h2")
 
-[node name="Visible Creatures" type="Node2D" parent="."]
-y_sort_enabled = true
+[node name="Slime" type="Sprite2D" parent="."]
+position = Vector2(185.75, 907)
+scale = Vector2(0.054687496, 0.054687496)
+texture = ExtResource("15_gugag")
 
-[node name="Creature1" parent="Visible Creatures" instance=ExtResource("15_omn7p")]
-position = Vector2(166, 531)
+[node name="Slime3" type="Sprite2D" parent="."]
+position = Vector2(96, 460)
+scale = Vector2(0.054687496, 0.054687496)
+texture = ExtResource("15_gugag")
 
-[node name="Creature2" parent="Visible Creatures" instance=ExtResource("15_omn7p")]
-position = Vector2(161, 824)
-
-[node name="Creature3" parent="Visible Creatures" instance=ExtResource("15_omn7p")]
-position = Vector2(293, 727)
-
-[node name="Creature4" parent="Visible Creatures" instance=ExtResource("15_omn7p")]
-position = Vector2(163, 640)
+[node name="Slime2" type="Sprite2D" parent="."]
+position = Vector2(527, 776.99994)
+scale = Vector2(0.054687496, 0.054687496)
+texture = ExtResource("15_gugag")
 
 [connection signal="pressed" from="Goals Button" to="." method="_on_goals_button_pressed"]
 [connection signal="pressed" from="Tasks Button" to="." method="_on_tasks_button_pressed"]
