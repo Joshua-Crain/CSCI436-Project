@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dxyn8anfhk5gn"]
 
-[ext_resource type="Script" uid="uid://dgqstl6d2bchi" path="res://battle_screen.gd" id="1_6fw3n"]
+[ext_resource type="Script" uid="uid://dgqstl6d2bchi" path="res://scripts/battle_screen.gd" id="1_6fw3n"]
 [ext_resource type="Theme" uid="uid://bw27kyo8oueeq" path="res://button_theme.tres" id="2_11jcw"]
 [ext_resource type="Texture2D" uid="uid://bq16apvlec3ja" path="res://Button Images/MainBG.jpg" id="3_6fw3n"]
 [ext_resource type="Texture2D" uid="uid://bqva228j426tf" path="res://Button Images/Crown 2.png" id="3_8csqv"]
@@ -94,16 +94,27 @@ position = Vector2(178.75, 881.00006)
 scale = Vector2(0.08776855, 0.08776855)
 texture = ExtResource("14_c2glx")
 
-[node name="TextEdit" type="TextEdit" parent="."]
-z_index = -1
-offset_left = 410.0
-offset_top = 440.0
-offset_right = 687.0
-offset_bottom = 883.0
+[node name="Future Work Title" type="Label" parent="."]
+z_index = 3
+offset_left = 122.5
+offset_top = 400.0
+offset_right = 597.5
+offset_bottom = 510.0
 theme = ExtResource("2_11jcw")
-theme_override_font_sizes/font_size = 100
-text = "BOSS
-"
+theme_override_font_sizes/font_size = 80
+text = "Stay Tuned!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Boss Title" type="Label" parent="."]
+offset_left = 470.0
+offset_top = 550.0
+offset_right = 630.0
+offset_bottom = 635.0
+theme_override_font_sizes/font_size = 60
+text = "BOSS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Goals Button" to="." method="_on_goals_button_pressed"]
 [connection signal="pressed" from="Tasks Button" to="." method="_on_tasks_button_pressed"]
