@@ -163,16 +163,16 @@ texture = ExtResource("3_6t2h2")
 y_sort_enabled = true
 
 [node name="Creature1" parent="Visible Creatures" instance=ExtResource("15_omn7p")]
-position = Vector2(166, 531)
+position = Vector2(113, 471)
 
 [node name="Creature2" parent="Visible Creatures" instance=ExtResource("15_omn7p")]
-position = Vector2(161, 824)
+position = Vector2(445, 623)
 
 [node name="Creature3" parent="Visible Creatures" instance=ExtResource("15_omn7p")]
-position = Vector2(293, 727)
+position = Vector2(603, 928)
 
 [node name="Creature4" parent="Visible Creatures" instance=ExtResource("15_omn7p")]
-position = Vector2(163, 640)
+position = Vector2(191, 841)
 
 [connection signal="pressed" from="Goals Button" to="." method="_on_goals_button_pressed"]
 [connection signal="pressed" from="Tasks Button" to="." method="_on_tasks_button_pressed"]
