@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://ifq8u538ftif"]
+
+[ext_resource type="Script" uid="uid://c2rafnmvamfym" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://cunl4mqcv5jg3" path="res://volume_slider.gd" id="2_7vrkn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_06t4h"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(0.3306771, 0.6966607, 0.30724055, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -70.0
+offset_right = 710.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="Options" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.0
+offset_top = -201.0
+offset_right = 278.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options"]
+layout_mode = 0
+offset_left = 4.5
+offset_top = 1.0
+offset_right = 552.5
+offset_bottom = 401.0
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Options"]
+layout_mode = 0
+offset_left = 181.5
+offset_top = 320.0
+offset_right = 383.0
+offset_bottom = 393.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_fu7sn")
+text = "Back"
+
+[node name="VolumeSlider" type="HSlider" parent="Options"]
+layout_mode = 0
+offset_left = 140.5
+offset_top = 81.0
+offset_right = 435.0
+offset_bottom = 206.0
+theme_override_styles/slider = SubResource("StyleBoxLine_06t4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_jix8l")
+value = 50.0
+script = ExtResource("2_7vrkn")
+
+[node name="MainButton" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 945.0
+offset_right = 498.0
+offset_bottom = 1103.0
+theme_override_constants/separation = 10
+
+[node name="StartButton" type="Button" parent="MainButton"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
+text = "Start Game"
+
+[node name="QuitButton" type="Button" parent="MainButton"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
+text = "Quit"
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 86.0
+offset_right = 158.0
+offset_bottom = 188.0
+text = "Settings"
+
+[connection signal="pressed" from="Options/Button" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="Options/VolumeSlider" to="Options/VolumeSlider" method="_on_value_changed"]
+[connection signal="pressed" from="MainButton/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainButton/QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
