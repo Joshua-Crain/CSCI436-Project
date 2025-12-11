@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c1mv58djkb4nw"]
+[gd_scene load_steps=24 format=3 uid="uid://c1mv58djkb4nw"]
 
 [ext_resource type="Theme" uid="uid://bw27kyo8oueeq" path="res://button_theme.tres" id="2_gna5p"]
 [ext_resource type="Texture2D" uid="uid://bq16apvlec3ja" path="res://Button Images/MainBG.jpg" id="3_6t2h2"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://drwhsxcrug2ks" path="res://Creature Images/HYDRAte.png" id="17_q57uf"]
 [ext_resource type="Texture2D" uid="uid://c745o1j6f66ev" path="res://Creature Images/Goblin.png" id="18_xruii"]
 [ext_resource type="Texture2D" uid="uid://d2dau16edh8dk" path="res://Creature Images/Slime 2.0.png" id="19_5h82a"]
+[ext_resource type="Script" uid="uid://nrtarqekh4i8" path="res://scripts/creatures_saveload.gd" id="20_q57uf"]
+[ext_resource type="Script" uid="uid://b3y6bvsu8kaka" path="res://scripts/creature_data.gd" id="21_xruii"]
 
 [sub_resource type="GDScript" id="GDScript_omn7p"]
 script/source = "extends Node2D
@@ -197,6 +199,25 @@ script = ExtResource("15_gugag")
 [node name="Sprite" type="Sprite2D" parent="Visible Creatures/Creature4"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_5h82a")
+
+[node name="CreaturesList" type="Node" parent="Visible Creatures"]
+script = ExtResource("20_q57uf")
+
+[node name="Hydra" type="Node" parent="Visible Creatures/CreaturesList"]
+script = ExtResource("21_xruii")
+metadata/Type = 2
+
+[node name="Slime" type="Node" parent="Visible Creatures/CreaturesList"]
+script = ExtResource("21_xruii")
+metadata/Type = 3
+
+[node name="Goblin" type="Node" parent="Visible Creatures/CreaturesList"]
+script = ExtResource("21_xruii")
+metadata/Type = 1
+
+[node name="Sheep" type="Node" parent="Visible Creatures/CreaturesList"]
+script = ExtResource("21_xruii")
+metadata/Type = 0
 
 [connection signal="pressed" from="Goals Button" to="." method="_on_goals_button_pressed"]
 [connection signal="pressed" from="Tasks Button" to="." method="_on_tasks_button_pressed"]
