@@ -75,11 +75,11 @@ func getTaskColor(type: String) -> Color:
 		"0": # wellness
 			return Color.hex(0x0097bfff)
 		"1": # fun
-			return Color.hex(0x00ba19ff)
-		"2": # social
-			return Color.hex(0xbcca00ff)
-		"3": # productivity
 			return Color.hex(0xb400c1ff)
+		"2": # social
+			return Color.hex(0x00ba19ff)
+		"3": # productivity
+			return Color.hex(0xbcca00ff)
 		_:
 			return Color.WHITE
 
@@ -120,13 +120,13 @@ func deleteTask(task_given: String) -> void:
 	# delete old task file, assign temp to new task file
 	var dir = DirAccess.open("res://data")
 	if(dir == null):
-		printerr("Error changing directory.")
+		print("Error changing directory.")
 		return
 
 	if dir.remove("savedTasks.txt") != OK:
-		printerr("Error deleting old task data")
+		print("Error deleting old task data")
 	else:
-		printerr("Old task data deleted successfully")
+		print("Old task data deleted successfully")
 		
 	dir.rename("tasksTemp.txt", "savedTasks.txt")
 	deleteButton.disabled = true
