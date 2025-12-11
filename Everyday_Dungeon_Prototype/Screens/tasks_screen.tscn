@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c24qwt8so1e34" path="res://Button Images/Pressed-Battles 2.png" id="10_vee8a"]
 [ext_resource type="Texture2D" uid="uid://bhj8dpy8v4vq1" path="res://Button Images/Creatures 2.png" id="11_lo6l3"]
 [ext_resource type="Texture2D" uid="uid://hs1clid5mgcy" path="res://Button Images/Pressed-Creatures 2.png" id="12_w2xs7"]
-[ext_resource type="PackedScene" uid="uid://ds6qo2tyi4voi" path="res://Screens/task_system.tscn" id="14_w2xs7"]
+[ext_resource type="PackedScene" uid="uid://ds6qo2tyi4voi" path="res://Objects/task_system.tscn" id="14_w2xs7"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_vcvit")

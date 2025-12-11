@@ -6,12 +6,9 @@ extends Node2D
 @onready var item_list: ItemList = $TaskSystem/TaskMenu/ItemList
 
 func _ready() -> void:
-	# get existing task data
-	
-	
-	# Start with Add visible and Delete hidden
+	# Start with Add visible and Delete visible
 	add_button.visible = true
-	delete_button.visible = false
+	delete_button.visible = true
 	
 	item_list.connect("item_selected", Callable(self, "_on_item_selected"))
 	
@@ -30,7 +27,6 @@ func _on_battle_button_pressed() -> void:
 
 func _on_creatures_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Screens/creatures_screen.tscn")
-
 
 func _on_add_button_pressed() -> void:
 	var text = line_edit.text.strip_edges()
