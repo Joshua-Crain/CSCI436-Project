@@ -4,8 +4,8 @@ const SAVE_BINARY := "user://savedCreatures.dat"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var err = load_binary()
-	if(err == 0):
-		save_binary()
+	##if(err == 0):
+	save_binary()
 	pass # Replace with function body.
 
 
@@ -37,3 +37,14 @@ func load_binary() -> int:
 		child.import_from_bin(file)
 	file.close()
 	return 0
+	
+func gain_xp(type: int) -> void:
+	var children = get_children()
+	for child in children:
+		if(child.type == type):
+			child.xp += 1
+			if(child.xp == 4):
+				child.level += 1
+				child.xp = 0
+	save_binary()
+	

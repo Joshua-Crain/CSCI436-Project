@@ -42,6 +42,7 @@ func import_from_bin(file: FileAccess) -> void:
 		## collect type as int
 		type = file.get_32()
 		## collecting the length of the name, then setting the name as a string
+		name = "";
 		var name_length := file.get_32()
 		for i in name_length:
 			c_name += char(file.get_8())
