@@ -11,7 +11,7 @@ func _ready() -> void:
 	delete_button.visible = true
 	
 	item_list.connect("item_selected", Callable(self, "_on_item_selected"))
-
+	
 
 func _on_goals_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Screens/goals_screen.tscn")
@@ -27,3 +27,39 @@ func _on_battle_button_pressed() -> void:
 
 func _on_creatures_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Screens/creatures_screen.tscn")
+
+func _on_add_button_pressed() -> void:
+	var text = line_edit.text.strip_edges()
+	if text == "":
+		return
+
+	# Add new task
+	item_list.add_item(text)
+	line_edit.clear()
+
+
+func _on_delete_button_pressed() -> void:
+	print("Clicked")
+	var selected = item_list.get_selected_items()
+	if selected.size() == 0:
+		return
+		
+	#read task
+	var index = selected[0]
+	#get task type
+	var task_type: String = item_list.get_item_metadata(index)
+	#add reward
+	GlobalData.add_xp_task_type(task_type)
+	# Remove selected item
+	item_list.remove_item(index)
+
+	# Switch buttons
+	delete_button.visible = false
+	add_button.visible = true
+
+
+func _on_item_selected(_index: int) -> void:
+	add_button.visible = false
+	delete_button.visible = true
+	
+	

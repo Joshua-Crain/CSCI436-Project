@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c608gttcobq7w"]
+[gd_scene load_steps=21 format=3 uid="uid://c608gttcobq7w"]
 
 [ext_resource type="Script" uid="uid://sfbws4aq3gi" path="res://scripts/creatures_screen.gd" id="1_cwgwc"]
 [ext_resource type="Theme" uid="uid://bw27kyo8oueeq" path="res://button_theme.tres" id="2_2jek0"]
@@ -16,6 +16,15 @@
 [ext_resource type="Texture2D" uid="uid://c745o1j6f66ev" path="res://Creature Images/Goblin.png" id="14_1scel"]
 [ext_resource type="Texture2D" uid="uid://drwhsxcrug2ks" path="res://Creature Images/HYDRAte.png" id="15_8y0ll"]
 [ext_resource type="Texture2D" uid="uid://d2dau16edh8dk" path="res://Creature Images/Slime 2.0.png" id="16_brrek"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fhqb"]
+bg_color = Color(0.879746, 0.8549117, 0.974181, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6fhqb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1scel"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8y0ll"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_cwgwc")
@@ -79,6 +88,56 @@ theme = ExtResource("2_2jek0")
 icon = ExtResource("13_6fhqb")
 icon_alignment = 1
 expand_icon = true
+metadata/_edit_lock_ = true
+
+[node name="SheepInfo" type="Panel" parent="Creature Buttons/Sheep"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 59.0
+offset_right = 433.0
+offset_bottom = 549.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fhqb")
+
+[node name="sheepButtonQuit" type="Button" parent="Creature Buttons/Sheep/SheepInfo"]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.17600001
+anchor_bottom = 0.080000006
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 30.199997
+offset_bottom = 42.000008
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6fhqb")
+text = "X"
+
+[node name="sheepNameLabel" type="Label" parent="Creature Buttons/Sheep/SheepInfo"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 97.0
+offset_right = 379.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1scel")
+text = "Sebastian"
+
+[node name="sheepLevelLabel" type="Label" parent="Creature Buttons/Sheep/SheepInfo"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 167.0
+offset_right = 269.0
+offset_bottom = 214.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8y0ll")
 
 [node name="Goblin" type="Button" parent="Creature Buttons"]
 offset_left = 340.0
@@ -89,6 +148,55 @@ icon = ExtResource("14_1scel")
 icon_alignment = 1
 expand_icon = true
 
+[node name="GoblinInfo" type="Panel" parent="Creature Buttons/Goblin"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -433.0
+offset_top = 72.0
+offset_right = 68.0
+offset_bottom = 562.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fhqb")
+
+[node name="goblinButtonQuit" type="Button" parent="Creature Buttons/Goblin/GoblinInfo"]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.17600001
+anchor_bottom = 0.080000006
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 30.199997
+offset_bottom = 42.000008
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6fhqb")
+text = "X"
+
+[node name="goblinNameLabel" type="Label" parent="Creature Buttons/Goblin/GoblinInfo"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 97.0
+offset_right = 379.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1scel")
+text = "Mindgoblin"
+
+[node name="goblinLevelLabel" type="Label" parent="Creature Buttons/Goblin/GoblinInfo"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 167.0
+offset_right = 269.0
+offset_bottom = 214.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8y0ll")
+
 [node name="Hydra" type="Button" parent="Creature Buttons"]
 offset_top = 560.0
 offset_right = 300.0
@@ -97,6 +205,55 @@ theme = ExtResource("2_2jek0")
 icon = ExtResource("15_8y0ll")
 icon_alignment = 1
 expand_icon = true
+
+[node name="HydraInfo" type="Panel" parent="Creature Buttons/Hydra"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -482.0
+offset_right = 439.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fhqb")
+
+[node name="hydraButtonQuit" type="Button" parent="Creature Buttons/Hydra/HydraInfo"]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.17600001
+anchor_bottom = 0.080000006
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 30.199997
+offset_bottom = 42.000008
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6fhqb")
+text = "X"
+
+[node name="hydraNameLabel" type="Label" parent="Creature Buttons/Hydra/HydraInfo"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 97.0
+offset_right = 379.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1scel")
+text = "Hydra-tion"
+
+[node name="hydraLevelLabel" type="Label" parent="Creature Buttons/Hydra/HydraInfo"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 167.0
+offset_right = 269.0
+offset_bottom = 214.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8y0ll")
 
 [node name="Slime" type="Button" parent="Creature Buttons"]
 offset_left = 340.0
@@ -108,8 +265,65 @@ icon = ExtResource("16_brrek")
 icon_alignment = 1
 expand_icon = true
 
+[node name="SlineInfo" type="Panel" parent="Creature Buttons/Slime"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -406.0
+offset_top = -471.0
+offset_right = 95.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6fhqb")
+
+[node name="slimeButtonQuit" type="Button" parent="Creature Buttons/Slime/SlineInfo"]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.17600001
+anchor_bottom = 0.080000006
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 30.199997
+offset_bottom = 42.000008
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6fhqb")
+text = "X"
+
+[node name="slimeNameLabel" type="Label" parent="Creature Buttons/Slime/SlineInfo"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 97.0
+offset_right = 379.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1scel")
+text = "Slime"
+
+[node name="slimeLevelLabel" type="Label" parent="Creature Buttons/Slime/SlineInfo"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 167.0
+offset_right = 269.0
+offset_bottom = 214.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8y0ll")
+
 [connection signal="pressed" from="Goals Button" to="." method="_on_goals_button_pressed"]
 [connection signal="pressed" from="Tasks Button" to="." method="_on_tasks_button_pressed"]
 [connection signal="pressed" from="Home Button" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="Battle Button" to="." method="_on_battle_button_pressed"]
 [connection signal="pressed" from="Creatures Button" to="." method="_on_creatures_button_pressed"]
+[connection signal="pressed" from="Creature Buttons/Sheep" to="." method="_on_sheep_pressed"]
+[connection signal="pressed" from="Creature Buttons/Sheep/SheepInfo/sheepButtonQuit" to="." method="_on_sheep_button_quit_pressed"]
+[connection signal="pressed" from="Creature Buttons/Goblin" to="." method="_on_goblin_pressed"]
+[connection signal="pressed" from="Creature Buttons/Goblin/GoblinInfo/goblinButtonQuit" to="." method="_on_goblin_button_quit_pressed"]
+[connection signal="pressed" from="Creature Buttons/Hydra" to="." method="_on_hydra_pressed"]
+[connection signal="pressed" from="Creature Buttons/Hydra/HydraInfo/hydraButtonQuit" to="." method="_on_hydra_button_quit_pressed"]
+[connection signal="pressed" from="Creature Buttons/Slime" to="." method="_on_slime_pressed"]
+[connection signal="pressed" from="Creature Buttons/Slime/SlineInfo/slimeButtonQuit" to="." method="_on_slime_button_quit_pressed"]

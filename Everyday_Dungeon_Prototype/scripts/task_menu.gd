@@ -35,6 +35,9 @@ func readData() -> void:
 			# adding the task to list
 			var new_index = taskList.add_item(task_name)
 			
+			# store task type
+			taskList.set_item_metadata(new_index, task_type)
+			
 			# get task color -> look at getTaskColor(String type)
 			var type_color = getTaskColor(task_type)
 			
