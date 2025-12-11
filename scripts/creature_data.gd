@@ -20,8 +20,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-##func _process(delta: float) -> void:
-	##pass
+func _process(delta: float) -> void:
+	pass
 
 
 ## exports the relevant data for a character to file in binary
@@ -30,7 +30,6 @@ func export_to_bin(file: FileAccess) -> void:
 	file.store_32(type) 
 	## storing the creature's name's length
 	file.store_32(c_name.length())
-	print(c_name.length())
 	## storing the creature's name
 	file.store_string(c_name)
 	## storing the creature's level
@@ -43,17 +42,14 @@ func import_from_bin(file: FileAccess) -> void:
 		## collect type as int
 		type = file.get_32()
 		## collecting the length of the name, then setting the name as a string
+		name = "";
 		var name_length := file.get_32()
-		c_name = ""
-		print(name_length)
 		for i in name_length:
 			c_name += char(file.get_8())
-			print(c_name)
 		## collecting the level
 		level = file.get_32()
 		## collecting cur xp
 		xp = file.get_32()
-		print(c_name)
 		
 	
 	

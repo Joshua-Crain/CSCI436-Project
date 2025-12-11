@@ -96,3 +96,4 @@ func _on_finish_button_pressed() -> void:
 	CreateButton.disabled = true
 	screen3.hide()
 	TaskMenu.show()
+	get_tree().change_scene_to_file("res://Screens/tasks_screen.tscn")
