@@ -15,7 +15,7 @@ func _on_goals_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Screens/goals_screen.tscn")
 
 func _on_tasks_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Screens/tasks_system.tscn")
+	get_tree().change_scene_to_file("res://Screens/tasks_screen.tscn")
 
 func _on_home_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Screens/home_screen.tscn")
