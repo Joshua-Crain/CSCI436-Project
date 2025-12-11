@@ -1,11 +1,17 @@
 extends Node
 
-var wellnessXP : int = 12
-var funXP : int = 25
-var socialXp: int = 100
-var productivityXP: int = 9
-var task_reward: int = 4
+# autoload this file first
+# project setting -> globals -> autoLoad -> add this script
 
+
+# xp values
+var wellnessXP : int = 0
+var funXP : int = 0
+var socialXp: int = 0
+var productivityXP: int = 0
+
+# reward after finishing a task
+var task_reward: int = 4
 
 func add_xp_task_type(task_type: String):
 	match task_type:

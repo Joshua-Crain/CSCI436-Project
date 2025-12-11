@@ -16,7 +16,7 @@ extends Node2D
 @onready var sline_info: Panel = $"Creature Buttons/Slime/SlineInfo"
 @onready var slime_level_label: Label = $"Creature Buttons/Slime/SlineInfo/slimeLevelLabel"
 
-
+# update the stat
 func _update_sheep_xp_display() -> void:
 	var current_socialXP = GlobalData.socialXp
 	
@@ -66,7 +66,7 @@ func _on_battle_button_pressed() -> void:
 func _on_creatures_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Screens/creatures_screen.tscn")
 
-
+# display info
 func _on_sheep_pressed() -> void:
 	_update_sheep_xp_display()
 	sheep_info.visible = true
