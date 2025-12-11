@@ -1,9 +1,11 @@
 extends Node2D
 
+@onready var sheep_info: Panel = $"Creature Buttons/Sheep/SheepInfo"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	sheep_info.visible = false # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,3 +27,11 @@ func _on_battle_button_pressed() -> void:
 
 func _on_creatures_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Screens/creatures_screen.tscn")
+
+
+func _on_sheep_pressed() -> void:
+	sheep_info.visible = true # Replace with function body.
+
+
+func _on_sheep_button_quit_pressed() -> void:
+	sheep_info.visible = false # Replace with function body.

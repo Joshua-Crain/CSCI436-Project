@@ -4,10 +4,6 @@ extends Node2D
 @onready var delete_button: Button = $TaskSystem/TaskMenu/DeleteButton
 @onready var line_edit: LineEdit = $TaskSystem/TaskMenu/LineEdit
 @onready var item_list: ItemList = $TaskSystem/TaskMenu/ItemList
-#@onready var add_button: Button
-#@onready var delete_button: Button
-#@onready var line_edit: LineEdit
-#@onready var item_list: ItemList
 
 func _ready() -> void:
 	# get existing task data
@@ -18,7 +14,7 @@ func _ready() -> void:
 	delete_button.visible = false
 	
 	item_list.connect("item_selected", Callable(self, "_on_item_selected"))
-
+	
 
 func _on_goals_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Screens/goals_screen.tscn")
@@ -47,12 +43,19 @@ func _on_add_button_pressed() -> void:
 
 
 func _on_delete_button_pressed() -> void:
+	print("Clicked")
 	var selected = item_list.get_selected_items()
 	if selected.size() == 0:
 		return
-
+		
+	#read task
+	var index = selected[0]
+	#get task type
+	var task_type: String = item_list.get_item_metadata(index)
+	#add reward
+	GlobalData.add_xp_task_type(task_type)
 	# Remove selected item
-	item_list.remove_item(selected[0])
+	item_list.remove_item(index)
 
 	# Switch buttons
 	delete_button.visible = false
